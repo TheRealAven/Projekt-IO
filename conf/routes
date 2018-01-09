@@ -1,0 +1,13 @@
+
+GET        /                                   controllers.HomeController.index
+GET        /count                              controllers.CountController.count
+GET        /message                            controllers.AsyncController.message
+
+GET        /building/:id                       controllers.BuildingController.writeInfoAbout(id: Integer)
+GET        /building/lightningPower/:id        controllers.BuildingController.countLightningPower(id: Integer)
+GET        /building/totalArea/:id             controllers.BuildingController.countTotalArea(id: Integer)
+GET        /building/totalCubage/:id           controllers.BuildingController.countTotalCubage(id: Integer)
+
+GET        /assets/*file                       controllers.Assets.versioned(path="/public", file: Asset)
+GET        /building/create                    controllers.BuildingController.create()
+GET        /list                               controllers.BuildingController.writeInfoAboutAllBuildings()

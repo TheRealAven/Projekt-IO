@@ -1,0 +1,21 @@
+@import locations.Building
+@import play.data.Form
+
+@(buildingFrom: Form[Building])
+
+<html>
+    <head>
+        <title>Dodaj building</title>
+    </head>
+    <body>
+        <h1>Stworz building</h1>
+
+        @helper.form(action = routes.BuildingController.create()) {
+
+            @helper.inputText(buildingFrom("id"))
+            @helper.inputText(buildingFrom("name"))
+            <input type="submit" value="create building">
+        }
+
+    </body>
+</html>
