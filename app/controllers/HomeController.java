@@ -9,7 +9,7 @@ public class HomeController extends Controller {
 
 
     public Result index() {
-        return ok(index.render("Aplikacja o budynkach"));
+        return ok(index.render("Aplikacja o budynkach       "));
     }
 
 }
