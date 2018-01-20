@@ -7,7 +7,7 @@ cp -R doc/ $HOME/javadoc-latest
 cd $HOME
 git config --global user.email "travis@travis-ci.org"
 git config --global user.name "travis-ci"
-git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/TheRealAven/Projekt-IO gh-pages > /dev/null
+git clone --quiet --branch=gh-pages https://022889ebfd39c06854645c7dfc914e67661385cd@github.com/TheRealAven/Projekt-IO gh-pages > /dev/null
 
 echo -e "Commiting... \n"
 # Commit and Push the Changes
