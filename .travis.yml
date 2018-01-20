@@ -11,4 +11,4 @@ script:
    - sbt ++$TRAVIS_SCALA_VERSION test
 after_success:
    - javadoc -sourcepath app/locations/*.java -d doc/ locations
-   - initiate-publish.sh
+   - ./initiate-publish.sh
