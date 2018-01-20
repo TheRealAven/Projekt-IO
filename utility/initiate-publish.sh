@@ -1,5 +1,7 @@
 echo -e "Publishing javadoc...\n"
 
+cp -R doc/ $HOME/javadoc-latest
+
 # Get to the Travis build directory, configure git and clone the repo
 cd $HOME
 git config --global user.email "travis@travis-ci.org"
