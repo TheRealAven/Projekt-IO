@@ -3,8 +3,11 @@ scala:
    - 2.9.3
    - 2.10.4
    - 2.11.2
+env:
+   global:
+      - secure: travis encrypt GH_TOKEN=022889ebfd39c06854645c7dfc914e67661385cd
 script:
    - sbt ++$TRAVIS_SCALA_VERSION compile
    - sbt ++$TRAVIS_SCALA_VERSION test
 after_success:
-   - javadoc -sourcepath app/locations
+   - utility/initiate-publish.sh
