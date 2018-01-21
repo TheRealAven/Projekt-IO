@@ -60,7 +60,7 @@ public class FloorTest {
     }
 
     @Test
-    public void mockEnergyConsumption(){
+    public void mockTotalArea(){
         Room mockRoom = mock(Room.class);
         Floor testFloor = new Floor();
         testFloor.addRoom(mockRoom);

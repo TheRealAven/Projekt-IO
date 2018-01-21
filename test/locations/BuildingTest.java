@@ -1,6 +1,7 @@
 package locations;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.*;
 
 import org.junit.Test;
 
@@ -80,5 +81,48 @@ public class BuildingTest {
         testFloor3.addRoom(new Room(3, 10, 10, 10, 10));
         testBuilding.addFloor(testFloor3);
         assertEquals(1.0, testBuilding.countEnergyConsumption(), 0.0);
+    }
+
+    @Test
+    public void mockEnergyConsumption(){
+        Room mockRoom1 = mock(Room.class);
+        Room mockRoom2 = mock(Room.class);
+        Floor testFloor = new Floor();
+        testFloor.addRoom(mockRoom1);
+        testFloor.addRoom(mockRoom2);
+        Building testBuilding = new Building();
+        testBuilding.addFloor(testFloor);
+        testBuilding.countEnergyConsumption();
+        verify(mockRoom1).countEnergyConsumption();
+        verify(mockRoom2).countEnergyConsumption();
+    }
+
+    @Test
+    public void mockRoomProperties(){
+        Room mockRoom1 = mock(Room.class);
+        Floor testFloor = new Floor();
+        testFloor.addRoom(mockRoom1);
+        Building testBuilding = new Building();
+        testBuilding.addFloor(testFloor);
+        testBuilding.countEnergyConsumption();
+        testBuilding.countLightningPower();
+        InOrder inOrder = inOrder(mockRoom1);
+        inOrder.verify(mockRoom1).countEnergyConsumption();
+        inOrder.verify(mockRoom1).countLightningPower();
+        inOrder.verify(mockRoom1).countTotalArea();
+    }
+
+    @Test
+    public void mockMultipleFloor(){
+        Room mockRoom1 = mock(Room.class);
+        Floor testFloor = new Floor();
+        Floor testFloor2 = new Floor();
+        testFloor.addRoom(mockRoom1);
+        testFloor2.addRoom(mockRoom1);
+        Building testBuilding = new Building();
+        testBuilding.addFloor(testFloor);
+        testBuilding.addFloor(testFloor2);
+        testBuilding.countTotalCubage();
+        verify(mockRoom1, times(2)).countTotalCubage();
     }
 }
