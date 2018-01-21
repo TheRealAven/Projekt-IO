@@ -12,7 +12,6 @@ public class Building extends Location {
 
     private ArrayList<Floor> floors;
 
-
     /**
      * @param id   - Unikalny identyfikator lokacji
      * @param name - Opcjonalna nazwa lokacji
@@ -101,6 +100,21 @@ public class Building extends Location {
         }
         meanBuildingEnergyConsumption = buildingEnergyConsumption / floors.size();
         return meanBuildingEnergyConsumption;
+    }
+
+    /**
+     *
+     * @param borderValueEnergyConsumption Wartość graniczna poziomu zużycia energii cieplnej na jednostkę objętości.
+     * @return Listę pomieszczeń przekraczających wartość graniczną poziomu zużycia energii cieplnej na jednostkę objętości.
+     */
+    public ArrayList<Room> getRoomsExceedingEnergyConsumption(double borderValueEnergyConsumption) {
+        AlertEnergyConsumptionVisitor alertEnergyConsumptionVisitor = new AlertEnergyConsumptionVisitor(borderValueEnergyConsumption);
+        for (Floor floor : floors) {
+            for (Room room : floor.getRooms()) {
+                room.accept(alertEnergyConsumptionVisitor);
+            }
+        }
+        return alertEnergyConsumptionVisitor.getRoomsExceedingEnergyConsumption();
     }
 
     public ArrayList<Floor> getFloors() {

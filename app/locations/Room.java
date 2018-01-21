@@ -7,7 +7,7 @@ package locations;
  * @author Oskar
  *
  */
-public class Room extends Location {
+public class Room extends Location implements Visitable {
 
 	private int area;
 	private int cube;
@@ -77,4 +77,12 @@ public class Room extends Location {
 	 */
 	@Override
 	public double countEnergyConsumption() { return heating / cube;}
+
+    /**
+     *
+     * @param visitor Wystąpienie klasy Visitor przyjmowane przez wystąpienie klasy Room poprzez tę metodę.
+     */
+	public void accept(Visitor visitor) {
+        visitor.visitRoom(this);
+    }
 }
