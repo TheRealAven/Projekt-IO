@@ -21,7 +21,7 @@ public class BrowserTest extends WithBrowser {
     @Test
     public void test() {
         browser.goTo("http://localhost:" + play.api.test.Helpers.testServerPort());
-        assertTrue(browser.pageSource().contains("Aplikacja o budynkach"));
+        assertTrue(browser.pageSource().contains("Witaj w Building Info"));
     }
 
 }
