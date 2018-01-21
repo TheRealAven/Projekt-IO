@@ -90,7 +90,7 @@ public class BuildingTest {
         Floor testFloor = new Floor();
         testFloor.addRoom(mockRoom1);
         testFloor.addRoom(mockRoom2);
-        Building testBuilding = new Building();
+        Building testBuilding = new Building(42);
         testBuilding.addFloor(testFloor);
         testBuilding.countEnergyConsumption();
         verify(mockRoom1).countEnergyConsumption();
@@ -102,7 +102,7 @@ public class BuildingTest {
         Room mockRoom1 = mock(Room.class);
         Floor testFloor = new Floor();
         testFloor.addRoom(mockRoom1);
-        Building testBuilding = new Building();
+        Building testBuilding = new Building(42);
         testBuilding.addFloor(testFloor);
         testBuilding.countEnergyConsumption();
         testBuilding.countLightningPower();
@@ -119,7 +119,7 @@ public class BuildingTest {
         Floor testFloor2 = new Floor();
         testFloor.addRoom(mockRoom1);
         testFloor2.addRoom(mockRoom1);
-        Building testBuilding = new Building();
+        Building testBuilding = new Building(42);
         testBuilding.addFloor(testFloor);
         testBuilding.addFloor(testFloor2);
         testBuilding.countTotalCubage();
