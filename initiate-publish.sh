@@ -2,7 +2,7 @@ if [ "$TRAVIS_BRANCH" == "master" ];then
 echo -e "Publishing javadoc...\n"
 
 cp -R doc/ $HOME/javadoc-latest
-cp -R target/utility $HOME/dist-latest
+cp -R target/universal $HOME/dist-latest
 
 # Get to the Travis build directory, configure git and clone the repo
 cd $HOME
