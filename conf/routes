@@ -19,6 +19,10 @@ GET        /building/building:idB/floor:idF/room:idR/lightningPower         cont
 GET        /building/building:idB/floor:idF/room:idR/totalArea              controllers.BuildingController.countTotalAreaRoom(idB: Integer, idF : Integer, idR : Integer)
 GET        /building/building:idB/floor:idF/room:idR/totalCubage            controllers.BuildingController.countTotalCubageRoom(idB: Integer, idF : Integer, idR : Integer)
 
+GET        /building/building:id/EnergyConsumption                                controllers.BuildingController.countEnergyConsumption(id: Integer)
+GET        /building/building:idB/floor:idF/EnergyConsumption                     controllers.BuildingController.countEnergyConsumptionFloor(idB: Integer, idF : Integer)
+GET        /building/building:idB/floor:idF/room:idR/EnergyConsumption            controllers.BuildingController.countEnergyConsumptionRoom(idB: Integer, idF : Integer, idR : Integer)
+
 GET        /building/building:id/json                   controllers.BuildingController.writeJSONAbout(id: Integer)
 GET        /building/lightningPower/:id                 controllers.BuildingController.countLightningPower(id: Integer)
 GET        /building/totalArea/:id                      controllers.BuildingController.countTotalArea(id: Integer)

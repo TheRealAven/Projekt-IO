@@ -89,6 +89,16 @@ public class BuildingController extends Controller {
         }
     }
 
+    public Result countEnergyConsumption(int idBudynku) {
+        Building building = findBuildingById(idBudynku);
+        if (building == null) {
+            return ok("nie ma takiego budynku");
+        } else {
+            double zużycie = building.countEnergyConsumption();
+            return ok(infoView.render("Średnie zużycie energii w budynku", zużycie));
+        }
+    }
+
     public Result countLightningPowerFloor(int idBudynku, int idF) {
         double lightingPower = 0;
         Building building = findBuildingById(idBudynku);
@@ -130,6 +140,19 @@ public class BuildingController extends Controller {
         }
         double kubatura = floor.countTotalCubage();
         return ok(infoView.render("Kubatura piętra", kubatura));
+    }
+
+    public Result countEnergyConsumptionFloor(int idBudynku, int idF) {
+        Building building = findBuildingById(idBudynku);
+        if (building == null) {
+            return ok("nie ma takiego budynku");
+        }
+        Floor floor = findFloorById(building.getFloors(), idF);
+        if (floor == null) {
+            return ok("nie ma takiego piętra");
+        }
+        double zużycie = floor.countEnergyConsumption();
+        return ok(infoView.render("Średnie zużycie energii na piętrze", zużycie));
     }
 
     public Result countLightningPowerRoom(int idBudynku, int idF, int idR) {
@@ -182,6 +205,22 @@ public class BuildingController extends Controller {
             return ok("nie ma takiego pomieszczenia");
         double kubatura = room.countTotalCubage();
         return ok(infoView.render("Kubatura pomieszczenia", kubatura));
+    }
+
+    public Result countEnergyConsumptionRoom(int idBudynku, int idF, int idR) {
+        Building building = findBuildingById(idBudynku);
+        if (building == null) {
+            return ok("nie ma takiego budynku");
+        }
+        Floor floor = findFloorById(building.getFloors(), idF);
+        if (floor == null) {
+            return ok("nie ma takiego piętra");
+        }
+        Room room = findRoomById(floor.getRooms(), idR);
+        if(room == null)
+            return ok("nie ma takiego pomieszczenia");
+        double zużycie = room.countEnergyConsumption();
+        return ok(infoView.render("Zużycie energii w pomieszczeniu", zużycie));
     }
 
     public Result index(){
