@@ -28,6 +28,8 @@ public abstract class Location {
 		this.id=id;
 	}
 	
+	public Location(){}
+	
 	/**
 	 * @return the id
 	 */

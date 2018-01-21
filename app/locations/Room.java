@@ -46,7 +46,7 @@ public class Room extends Location {
 		this.light=light;
 	}
 	
-	
+	public Room(){}
 
 	
 	/**

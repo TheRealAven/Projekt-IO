@@ -1,0 +1,45 @@
+@import locations.Building
+@import locations.Floor
+@import locations.Room
+@import play.data.Form
+@import helper.form
+@import helper.inputText
+
+@(rooms : List[Room], idB : Integer, idF : Integer, roomForm: Form[Room])
+
+<html>
+    <head>
+        <title>Building Info</title>
+    </head>
+    <body>
+        <h1>Piętro o id @idF w budynku o id @idB</h1>
+
+        <article>
+            <h2>Pomieszczenia na piętrze:</h2>
+            @for(room <- rooms){
+            <h3>Pomieszczenie o id @room.getId</h3>
+                <div class="my-buttons">
+                    <a href="/building/building@idB/floor@idF/room@room.getId/totalArea"> <button type="button" class="button3">Powierzchnia</button></a>
+                    <a href="/building/building@idB/floor@idF/room@room.getId/totalCubage"> <button type="button" class="button3">Kubatura</button></a>
+                    <a href="/building/building@idB/floor@idF/room@room.getId/lightningPower"> <button type="button" class="button3">Moc oświetlenia</button></a>
+                </div>
+            }
+
+            <h2>Dodaj pomieszczenie:</h2>
+            @helper.form(action = helper.CSRF(routes.BuildingController.createRoom(idB,idF))){
+                @helper.inputText(roomForm("Id"))
+                @helper.inputText(roomForm("Nazwa"))
+                @helper.inputText(roomForm("area"))
+                @helper.inputText(roomForm("cube"))
+                @helper.inputText(roomForm("heating"))
+                @helper.inputText(roomForm("light"))
+
+
+            <input type="submit" value="Dodaj">
+            }
+
+        </article>
+
+
+    </body>
+</html>

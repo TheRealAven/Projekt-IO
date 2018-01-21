@@ -11,6 +11,10 @@ import java.util.ArrayList;
  */
 public class Floor extends Location {
 
+	public ArrayList<Room> getRooms() {
+		return rooms;
+	}
+
 	private ArrayList<Room> rooms;
 	
 	/**
@@ -30,6 +34,8 @@ public class Floor extends Location {
 		rooms = new ArrayList<>();
 	}
 
+	public Floor(){rooms = new ArrayList<>();}
+	
 	/**
 	 * Przypisuje pomieszczenie do danego poziomu
 	 * @param p - przypisywane pomieszczenie

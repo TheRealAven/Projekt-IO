@@ -1,0 +1,39 @@
+@import locations.Building
+@import locations.Floor
+@import play.data.Form
+@import helper.form
+@import helper.inputText
+
+@(floors : List[Floor], id : Integer, floorForm: Form[Floor])
+
+<html>
+    <head>
+        <title>Building Info</title>
+    </head>
+    <body>
+        <h1>Budynek o id @id</h1>
+
+        <article>
+            <h2>Piętra budynku:</h2>
+            @for(floor <- floors){
+            <h3><a href="/building/building@id/floor@floor.getId">Piętro o id @floor.getId</a></h3>
+                <div class="my-buttons">
+                    <a href="/building/building@id/floor@floor.getId/totalArea"> <button type="button" class="button3">Powierzchnia</button></a>
+                    <a href="/building/building@id/floor@floor.getId/totalCubage"> <button type="button" class="button3">Kubatura</button></a>
+                    <a href="/building/building@id/floor@floor.getId/lightningPower"> <button type="button" class="button3">Moc oświetlenia</button></a>
+                </div>
+            }
+
+            <h2>Dodaj piętro:</h2>
+            @helper.form(action = helper.CSRF(routes.BuildingController.createFloor(id))){
+                @helper.inputText(floorForm("Id"), 'id -> "setId")
+                @helper.inputText(floorForm("Nazwa"), 'id -> "setName")
+
+                <input type="submit" value="Dodaj">
+            }
+
+        </article>
+
+
+    </body>
+</html>

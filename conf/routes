@@ -1,12 +1,28 @@
 
-GET        /                                   controllers.HomeController.index
-GET        /count                              controllers.CountController.count
-GET        /message                            controllers.AsyncController.message
+GET        /                                           controllers.BuildingController.index
+GET        /count                                      controllers.CountController.count
+GET        /message                                    controllers.AsyncController.message
 
-GET        /building/:id                       controllers.BuildingController.writeInfoAbout(id: Integer)
-GET        /building/lightningPower/:id        controllers.BuildingController.countLightningPower(id: Integer)
-GET        /building/totalArea/:id             controllers.BuildingController.countTotalArea(id: Integer)
-GET        /building/totalCubage/:id           controllers.BuildingController.countTotalCubage(id: Integer)
+GET        /building/building:id                       controllers.BuildingController.writeInfoAboutBuilding(id: Integer)
+POST       /building/building:id                       controllers.BuildingController.createFloor(id: Integer)
+GET        /building/building:id/lightningPower        controllers.BuildingController.countLightningPower(id: Integer)
+GET        /building/building:id/totalArea             controllers.BuildingController.countTotalArea(id: Integer)
+GET        /building/building:id/totalCubage           controllers.BuildingController.countTotalCubage(id: Integer)
+
+GET        /building/building:idB/floor:idF                        controllers.BuildingController.writeInfoAboutFloor(idB: Integer, idF : Integer)
+POST       /building/building:idB/floor:idF                        controllers.BuildingController.createRoom(idB: Integer, idF : Integer)
+GET        /building/building:idB/floor:idF/lightningPower         controllers.BuildingController.countLightningPowerFloor(idB: Integer, idF : Integer)
+GET        /building/building:idB/floor:idF/totalArea              controllers.BuildingController.countTotalAreaFloor(idB: Integer, idF : Integer)
+GET        /building/building:idB/floor:idF/totalCubage            controllers.BuildingController.countTotalCubageFloor(idB: Integer, idF : Integer)
+
+GET        /building/building:idB/floor:idF/room:idR/lightningPower         controllers.BuildingController.countLightningPowerRoom(idB: Integer, idF : Integer, idR : Integer)
+GET        /building/building:idB/floor:idF/room:idR/totalArea              controllers.BuildingController.countTotalAreaRoom(idB: Integer, idF : Integer, idR : Integer)
+GET        /building/building:idB/floor:idF/room:idR/totalCubage            controllers.BuildingController.countTotalCubageRoom(idB: Integer, idF : Integer, idR : Integer)
+
+GET        /building/building:id/json                   controllers.BuildingController.writeJSONAbout(id: Integer)
+GET        /building/lightningPower/:id                 controllers.BuildingController.countLightningPower(id: Integer)
+GET        /building/totalArea/:id                      controllers.BuildingController.countTotalArea(id: Integer)
+GET        /building/totalCubage/:id                    controllers.BuildingController.countTotalCubage(id: Integer)
 
 GET        /assets/*file                       controllers.Assets.versioned(path="/public", file: Asset)
 GET        /building/create                    controllers.BuildingController.create()

@@ -9,12 +9,12 @@ public class BuildingDatabase {
 
     public BuildingDatabase() {
         Floor p0 = new Floor(0, "parter");
-        Floor p1 = new Floor(0, "pierwsze");
-        Floor p2 = new Floor(0, "drugie");
+        Floor p1 = new Floor(1, "pierwsze");
+        Floor p2 = new Floor(2, "drugie");
 
         Room pom1 = new Room(1,"balkon",154,23,10,123);
-        Room pom2 = new Room(1,"kuchnia",12,2,111,12);
-        Room pom3 = new Room(1,"salon",1,2,1,1);
+        Room pom2 = new Room(2,"kuchnia",12,2,111,12);
+        Room pom3 = new Room(3,"salon",1,2,1,1);
 
         p0.addRoom(pom1);
         p0.addRoom(pom3);

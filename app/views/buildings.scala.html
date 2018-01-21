@@ -1,0 +1,26 @@
+@import locations.Building
+
+@(buildings : Set[Building])
+
+<html>
+    <head>
+        <title>Building Info</title>
+    </head>
+    <body>
+        <h1>Witaj w Building Info</h1>
+
+        <article>
+            @for(building <- buildings){
+            <h2><a href="building/building@building.getId">Budynek o id @building.getId</a></h2>
+                <div class="my-buttons">
+
+                    <a href="building/building@building.getId/totalArea"> <button type="button" class="button3">Powierzchnia</button></a>
+                    <a href="building/building@building.getId/totalCubage"> <button type="button" class="button3">Kubatura</button></a>
+                    <a href="building/building@building.getId/lightningPower"> <button type="button" class="button3">Moc oświetlenia</button></a>
+                </div>
+            }
+        </article>
+
+
+    </body>
+</html>
