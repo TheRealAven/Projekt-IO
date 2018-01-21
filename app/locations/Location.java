@@ -65,12 +65,27 @@ public abstract class Location {
 	}
 
 
-
+    /**
+     *
+     * @return Moc oświetlenia lokacji w przeliczeniu na jednostkę powierzchni.
+     */
 	public abstract double countLightningPower();
 
+    /**
+     *
+     * @return Powierzchnię lokacji.
+     */
 	public abstract double countTotalArea();
 
+    /**
+     *
+     * @return Kubaturę lokacji.
+     */
 	public abstract double countTotalCubage();
 
+    /**
+     *
+     * @return Zużycie energii przez lokację na ogrzewanie w przeliczeniu na jednostkę objętości.
+     */
 	public abstract double countEnergyConsumption();
 }
