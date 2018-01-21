@@ -76,5 +76,5 @@ public class Room extends Location {
 	 * @return Zużycie energii na ogrzewanie pomieszczenia w przeliczeniu na jednostkę objętości.
 	 */
 	@Override
-	public double countEnergyConsumption() { return heating;}
+	public double countEnergyConsumption() { return heating / cube;}
 }

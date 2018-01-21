@@ -69,16 +69,16 @@ public class BuildingTest {
         Floor testFloor1 = new Floor(33);
         testFloor1.addRoom(new Room(1, 10, 10, 10, 10));
         testBuilding.addFloor(testFloor1);
-        assertEquals(10.0, testBuilding.countEnergyConsumption(), 0.0);
+        assertEquals(1.0, testBuilding.countEnergyConsumption(), 0.0);
 
         Floor testFloor2 = new Floor(34);
         testFloor2.addRoom(new Room(2, 10, 10, 10, 10));
         testBuilding.addFloor(testFloor2);
-        assertEquals(10.0, testBuilding.countTotalCubage(), 0.0);
+        assertEquals(1.0, testBuilding.countEnergyConsumption(), 0.0);
 
         Floor testFloor3 = new Floor(35);
         testFloor3.addRoom(new Room(3, 10, 10, 10, 10));
         testBuilding.addFloor(testFloor3);
-        assertEquals(10.0, testBuilding.countTotalCubage(), 0.0);
+        assertEquals(1.0, testBuilding.countEnergyConsumption(), 0.0);
     }
 }
