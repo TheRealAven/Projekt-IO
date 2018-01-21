@@ -88,6 +88,21 @@ public class Building extends Location {
         return kubaturaBudynku;
     }
 
+    /**
+     *
+     * @return Zużycie energii na ogrzewanie budynku w przeliczeniu na jednostkę objętości.
+     */
+    @Override
+    public double countEnergyConsumption() {
+        double buildingEnergyConsumption = 0;
+        double meanBuildingEnergyConsumption;
+        for (Floor floor : floors) {
+            buildingEnergyConsumption += floor.countEnergyConsumption();
+        }
+        meanBuildingEnergyConsumption = buildingEnergyConsumption / floors.size();
+        return meanBuildingEnergyConsumption;
+    }
+
     public ArrayList<Floor> getFloors() {
         return floors;
     }

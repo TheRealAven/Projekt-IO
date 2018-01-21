@@ -71,4 +71,6 @@ public abstract class Location {
 	public abstract double countTotalArea();
 
 	public abstract double countTotalCubage();
+
+	public abstract double countEnergyConsumption();
 }

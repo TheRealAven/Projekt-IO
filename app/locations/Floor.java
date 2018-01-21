@@ -91,4 +91,19 @@ public class Floor extends Location {
 		return kubaturaPoziomu;
 	}
 
+	/**
+	 *
+	 * @return Zużycie energii na ogrzewanie poziomu w przeliczeniu na jednostkę objętości
+	 */
+	@Override
+	public double countEnergyConsumption() {
+		double floorEnergyConsumption = 0;
+        double meanFloorEnergyConsumption;
+		for (Room room : rooms) {
+		    floorEnergyConsumption += room.countEnergyConsumption();
+        }
+        meanFloorEnergyConsumption = floorEnergyConsumption / rooms.size();
+        return  meanFloorEnergyConsumption;
+	}
+
 }

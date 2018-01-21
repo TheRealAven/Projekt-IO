@@ -71,4 +71,10 @@ public class Room extends Location {
 	@Override
 	public double countTotalCubage() { return cube; }
 
+	/**
+	 *
+	 * @return Zużycie energii na ogrzewanie pomieszczenia w przeliczeniu na jednostkę objętości.
+	 */
+	@Override
+	public double countEnergyConsumption() { return heating;}
 }
