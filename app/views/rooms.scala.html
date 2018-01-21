@@ -10,15 +10,21 @@
 <html>
     <head>
         <title>Building Info</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
     </head>
     <body>
-        <h1>Piętro o id @idF w budynku o id @idB</h1>
+        @welcome("Witaj w Building Info ", style = "java")
+
+        <div class="example1">
+            @*<img src="assets/icons/panorama.jpg">*@
+        </div>
 
         <article>
             <h2>Pomieszczenia na piętrze:</h2>
             @for(room <- rooms){
-            <h3>Pomieszczenie o id @room.getId</h3>
                 <div class="my-buttons">
+                    <h3>Pomieszczenie o id @room.getId</h3>
                     <a href="/building/building@idB/floor@idF/room@room.getId/totalArea"> <button type="button" class="button3">Powierzchnia</button></a>
                     <a href="/building/building@idB/floor@idF/room@room.getId/totalCubage"> <button type="button" class="button3">Kubatura</button></a>
                     <a href="/building/building@idB/floor@idF/room@room.getId/lightningPower"> <button type="button" class="button3">Moc oświetlenia</button></a>
@@ -27,20 +33,25 @@
             }
 
             <h2>Dodaj pomieszczenie:</h2>
-            @helper.form(action = helper.CSRF(routes.BuildingController.createRoom(idB,idF))){
-                @helper.inputText(roomForm("Id"))
-                @helper.inputText(roomForm("Nazwa"))
-                @helper.inputText(roomForm("area"))
-                @helper.inputText(roomForm("cube"))
-                @helper.inputText(roomForm("heating"))
-                @helper.inputText(roomForm("light"))
+            <div class="my-buttons">
+                @helper.form(action = helper.CSRF(routes.BuildingController.createRoom(idB,idF))){
+                    @helper.inputText(roomForm("Id"))
+                    @helper.inputText(roomForm("Nazwa"))
+                    @helper.inputText(roomForm("area"))
+                    @helper.inputText(roomForm("cube"))
+                    @helper.inputText(roomForm("heating"))
+                    @helper.inputText(roomForm("light"))
 
 
-            <input type="submit" value="Dodaj">
-            }
+                <input type="submit" value="Dodaj">
+                }
+            </div>
 
         </article>
 
 
     </body>
+    <footer class="panel-footer">
+        <div class="example2"></div>
+    </footer>
 </html>

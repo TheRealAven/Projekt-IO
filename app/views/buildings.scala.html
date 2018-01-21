@@ -1,13 +1,19 @@
 @import locations.Building
 
 @(buildings : Set[Building])
-
+<!DOCTYPE html>
 <html>
     <head>
         <title>Building Info</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
     </head>
     <body>
-        <h1>Witaj w Building Info</h1>
+        @welcome("Witaj w Building Info ", style = "java")
+
+        <div class="example1">
+            @*<img src="assets/icons/panorama.jpg">*@
+        </div>
 
         <article>
             @for(building <- buildings){
@@ -24,4 +30,7 @@
 
 
     </body>
+    <footer class="panel-footer">
+        <div class="example2"></div>
+    </footer>
 </html>
