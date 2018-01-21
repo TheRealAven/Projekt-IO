@@ -58,4 +58,13 @@ public class FloorTest {
         testFloor.addRoom(new Room(3, 10, 10, 10, 10));
         assertEquals(1.0, testFloor.countEnergyConsumption(), 0.0);
     }
+
+    @Test
+    public void mockEnergyConsumption(){
+        Room mockRoom = mock(Room.class);
+        Floor testFloor = new Floor();
+        testFloor.addRoom(mockRoom);
+        testFloor.countTotalArea();
+        verify(mockRoom).countTotalArea();
+    }
 }
