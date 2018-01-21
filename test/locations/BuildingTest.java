@@ -106,10 +106,10 @@ public class BuildingTest {
         testBuilding.addFloor(testFloor);
         testBuilding.countEnergyConsumption();
         testBuilding.countLightningPower();
-        InOrder inOrder = new inOrder(mockRoom1);
-        inOrder.verify(mockRoom1).countEnergyConsumption();
-        inOrder.verify(mockRoom1).countLightningPower();
-        inOrder.verify(mockRoom1).countTotalArea();
+
+        verify(mockRoom1).countEnergyConsumption();
+        verify(mockRoom1).countLightningPower();
+        verify(mockRoom1).countTotalArea();
     }
 
     @Test
