@@ -13,4 +13,3 @@ script:
 after_success:
    - javadoc -sourcepath app/locations/*.java -d doc/ locations
    - ./initiate-publish.sh
-   - ./dist-publish.sh

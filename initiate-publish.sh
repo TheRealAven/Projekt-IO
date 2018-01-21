@@ -2,6 +2,7 @@ if [ "$TRAVIS_BRANCH" == "master" ];then
 echo -e "Publishing javadoc...\n"
 
 cp -R doc/ $HOME/javadoc-latest
+cp -R target/utility $HOME/dist-latest
 
 # Get to the Travis build directory, configure git and clone the repo
 cd $HOME
@@ -14,6 +15,8 @@ echo -e "Commiting... \n"
 cd gh-pages
 git rm -rf ./javadoc
 cp -Rf $HOME/javadoc-latest ./javadoc
+git rm -rf ./dist
+cp -Rf $HOME/dist-latest ./dist
 git add -f .
 git commit -m "Lastest javadoc on successful travis build $TRAVIS_BUILD_NUMBER auto-pushed to gh-pages"
 git push -fq origin gh-pages > /dev/null
