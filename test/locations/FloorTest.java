@@ -50,7 +50,7 @@ public class FloorTest {
         Floor testFloor = new Floor(23);
         testFloor.addRoom(new Room(1, 10, 10, 10, 10));
         assertEquals(1.0, testFloor.countEnergyConsumption(), 0.0);
-        
+
         testFloor.addRoom(new Room(2, 10, 10, 10, 10));
         assertEquals(1.0, testFloor.countEnergyConsumption(), 0.0);
 
