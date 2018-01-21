@@ -9,6 +9,7 @@ env:
 script:
    - sbt ++$TRAVIS_SCALA_VERSION compile
    - sbt ++$TRAVIS_SCALA_VERSION test
+   - sbt ++$TRAVIS_SCALA_VERSION dist
 after_success:
    - javadoc -sourcepath app/locations/*.java -d doc/ locations
    - ./initiate-publish.sh
